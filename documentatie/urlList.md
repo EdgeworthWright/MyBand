@@ -1,17 +1,17 @@
-index.php
+index
 
 
-tour.php
+tour
 
 
-aboutgrumps.php
+aboutgrumps
 
 
-aboutme.php
+aboutme
 
 
-contact.php
+contact
 
 
-search.php
+search
 
