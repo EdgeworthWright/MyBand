@@ -1,0 +1,45 @@
+.headerImage
+  max-width: 100%
+
+nav
+  +clearfix
+  position: relative
+  top: -.25em
+  margin: 0 auto
+  background: #F5883B
+  width: 100%
+
+  a
+    color: white
+    text-decoration: none
+    font-size: 1.7em
+    margin: 0 1.5em
+    transition: .5s
+
+    &:hover
+      text-shadow: 1px 1px 2px white
+      font-weight: bold
+
+  .searchLink
+    &:before
+      content: url('../images/searchIcon.png')
+
+  ul
+    list-style: none
+
+  li
+    float: left
+    padding: 1em
+
+  .leftNav
+    float: left
+
+  .navImage
+    position: relative
+    left: 7%
+    margin-left: -50px !important
+    border-radius: 100em
+    height: 100px
+
+  .rightNav
+    float: right
