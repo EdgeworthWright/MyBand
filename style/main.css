@@ -101,7 +101,7 @@ nav .rightNav {
 }
 .latestVideos a {
   position: relative;
-  top: 75%;
+  top: 5%;
   left: 14.7%;
   padding: 0.7em 1.3em;
   margin: 0.2em;
@@ -112,7 +112,7 @@ nav .rightNav {
   text-decoration: none;
 }
 
-#sidebar {
+.sidebar {
   grid-row: 1;
   grid-column: 1;
   margin: 6em -0.7em;
@@ -124,6 +124,10 @@ nav .rightNav {
   border-bottom-right-radius: 0.4em;
 }
 
+.hideOnBig {
+  display: none;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -132,6 +136,50 @@ nav .rightNav {
   background: #F5883B;
   text-align: center;
   padding-top: 0.3em;
+}
+
+@media only screen and (max-width: 414px) {
+  .hideOnSmall {
+    display: none;
+  }
+
+  .hideOnBig {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+  }
+  .hideOnBig img {
+    max-width: 200px;
+  }
+
+  .video {
+    margin-bottom: 0.5em;
+  }
+
+  main {
+    display: block;
+  }
+
+  .latestVideos {
+    text-align: center;
+    position: relative;
+    right: 20%;
+    padding-bottom: 50px;
+  }
+  .latestVideos a {
+    position: relative;
+    left: 0%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .navImage {
+    visibility: hidden;
+  }
+
+  .latestVideos {
+    padding-bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

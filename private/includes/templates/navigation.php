@@ -5,7 +5,7 @@
     <li><a href="/about-grumps">About Grumps</a></li>
   </ul>
 
-  <img class="navImage" src="images/ggpfp.jpg" alt="">
+  <img class="navImage hideOnSmall" src="images/ggpfp.jpg" alt="">
 
   <ul class="rightNav">
     <li><a href="/about-me">About Me</a></li>
