@@ -242,8 +242,34 @@ nav .rightNav {
     position: relative;
     left: 0%;
   }
+
+  .tourpage li {
+    background: rgba(0, 0, 0, 0.16);
+    flex-wrap: wrap;
+    padding-bottom: 7em;
+    border-radius: 0.5em;
+    text-align: center;
+    max-height: 210px;
+  }
+  .tourpage li:hover {
+    background: rgba(0, 0, 0, 0.16);
+  }
+  .tourpage li:hover .tourdate {
+    transform: scale(1);
+  }
+  .tourpage .tourtickets {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  .tourpage .tourtickets a {
+    padding: 0.3em 2em;
+  }
+  .tourpage .tourtickets a:hover {
+    transform: rotate(0);
+    transform: scale(1);
+  }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
   .navImage {
     visibility: hidden;
   }
