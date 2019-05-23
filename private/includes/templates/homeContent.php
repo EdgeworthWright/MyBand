@@ -1,6 +1,6 @@
 </div>
 
-<div class="main">
+<div class="homepage">
   <div class="latestVideos">
     <h1>Latest videos</h1>
 

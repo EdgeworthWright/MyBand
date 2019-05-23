@@ -45,7 +45,6 @@ nav a {
 }
 nav a:hover {
   text-shadow: 1px 1px 2px white;
-  font-weight: bold;
 }
 nav .searchLink:before {
   content: url("../images/searchIcon.png");
@@ -56,13 +55,17 @@ nav ul {
 nav li {
   float: left;
   padding: 1em;
+  transition: 0.1s;
+}
+nav li:hover {
+  transform: scale(1.5);
 }
 nav .leftNav {
   float: left;
 }
 nav .navImage {
   position: relative;
-  left: 7%;
+  left: 8%;
   margin-left: -50px !important;
   border-radius: 100em;
   height: 100px;
@@ -71,7 +74,7 @@ nav .rightNav {
   float: right;
 }
 
-.main {
+.homepage {
   padding: 10px;
   padding-bottom: 80px;
   display: grid;
@@ -128,9 +131,77 @@ nav .rightNav {
   display: none;
 }
 
+.tourpage {
+  box-sizing: border-box;
+  margin: 75px auto;
+  padding-bottom: 90px;
+}
+.tourpage ul {
+  margin: 0 auto;
+  font-size: 2em;
+}
+.tourpage li {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  max-width: 60%;
+  max-height: 174px;
+  left: 20%;
+  border-radius: 100em;
+  transition: 0.15s;
+  margin-bottom: 1em;
+}
+.tourpage li:hover {
+  background: #ECF1F5;
+}
+.tourpage li:hover .tourdate {
+  transform: scale(1.5);
+}
+.tourpage li:last-of-type {
+  margin-bottom: 1em;
+}
+.tourpage li div {
+  margin: auto;
+}
+.tourpage li .tourdate {
+  transition: 0.5s;
+}
+
+.tourdate {
+  padding: 20px;
+  text-align: center;
+  justify-content: flex-start;
+  background-image: url("../images/date-bg.png");
+  box-shadow: 18px 16px 5px 0px rgba(0, 0, 0, 0.16);
+  color: white;
+  text-shadow: 4px 3px 0px rgba(0, 0, 0, 0.6);
+}
+
+.tourlocation {
+  justify-content: flex-start;
+}
+
+.tourtickets {
+  justify-content: flex-end;
+}
+.tourtickets a {
+  text-decoration: none;
+  background: white;
+  padding: 0.5em;
+  border: 0.3em solid blue;
+  border-radius: 100em;
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.16);
+  transition: 0.1s;
+  display: inline-block;
+}
+.tourtickets a:hover {
+  transform: scale(1.5);
+  transform: rotate(-15deg);
+}
+
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: -80px;
   width: 100%;
   height: 60px;
   background: #F5883B;
@@ -154,10 +225,10 @@ nav .rightNav {
   }
 
   .video {
-    margin-bottom: 0.5em;
+    padding-bottom: 1em;
   }
 
-  main {
+  .homepage {
     display: block;
   }
 
@@ -165,7 +236,7 @@ nav .rightNav {
     text-align: center;
     position: relative;
     right: 20%;
-    padding-bottom: 50px;
+    margin-bottom: 3em;
   }
   .latestVideos a {
     position: relative;
@@ -179,6 +250,28 @@ nav .rightNav {
 
   .latestVideos {
     padding-bottom: 0;
+  }
+
+  .tourpage li {
+    flex-wrap: wrap;
+    margin-bottom: 4em;
+  }
+  .tourpage li:hover {
+    background: transparent;
+  }
+  .tourpage li:hover .tourdate {
+    transform: scale(1);
+  }
+  .tourpage .tourtickets {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  .tourpage .tourtickets a {
+    padding: 0.3em 2em;
+  }
+  .tourpage .tourtickets a:hover {
+    transform: rotate(0);
+    transform: scale(1);
   }
 }
 
