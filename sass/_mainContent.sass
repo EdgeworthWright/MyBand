@@ -25,17 +25,19 @@
     .small
       width: 25%
 
-  a
-    position: relative
-    top: 5%
-    left: 14.7%
-    padding: .7em 1.3em
-    margin: .2em
-    border-radius: 1em
-    border: 1px solid black
-    background: red
-    color: white
-    text-decoration: none
+.page
+  position: relative
+  top: 5%
+  left: 14.7%
+  padding: .7em 1.3em
+  margin: .2em
+  border-radius: 1em
+  border: 1px solid black
+  background: red
+  color: white
+  text-decoration: none
+.currentPage
+  background: pink
 
 .sidebar
   grid-row: 1
@@ -73,12 +75,15 @@
       background: #ECF1F5
       .tourdate
         transform: scale(1.5)
-    &:last-of-type 
+    &:last-of-type
       margin-bottom: 1em
     div
       margin: auto
     .tourdate
       transition: .5s
+  .page
+    top: 8%
+    left: 25%
 .tourdate
   padding: 20px
   text-align: center

@@ -102,7 +102,8 @@ nav .rightNav {
 .latestVideos table .small {
   width: 25%;
 }
-.latestVideos a {
+
+.page {
   position: relative;
   top: 5%;
   left: 14.7%;
@@ -113,6 +114,10 @@ nav .rightNav {
   background: red;
   color: white;
   text-decoration: none;
+}
+
+.currentPage {
+  background: pink;
 }
 
 .sidebar {
@@ -165,6 +170,10 @@ nav .rightNav {
 }
 .tourpage li .tourdate {
   transition: 0.5s;
+}
+.tourpage .page {
+  top: 8%;
+  left: 25%;
 }
 
 .tourdate {
@@ -287,6 +296,9 @@ nav .rightNav {
   }
   .tourpage li:hover .tourdate {
     transform: scale(1);
+  }
+  .tourpage .page {
+    top: 4em;
   }
   .tourpage .tourtickets {
     flex: 0 0 100%;

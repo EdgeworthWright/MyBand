@@ -45,3 +45,5 @@
       </div>
     </li>
   </ul>
+
+  <a class="page currentPage" href="#">1</a> <a class="page" href="#">2</a> <a class="page" href="#">3</a>
