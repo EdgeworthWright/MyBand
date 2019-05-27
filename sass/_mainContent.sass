@@ -58,6 +58,8 @@
   box-sizing: border-box
   margin: 75px auto
   padding-bottom: 90px
+  h1
+    text-align: center
   ul
     margin: 0 auto
     font-size: 2em
@@ -111,3 +113,45 @@
     &:hover
       transform: scale(1.5)
       transform: rotate(-15deg)
+
+.aboutPage
+  h1
+    text-align: center
+  img
+    max-width: 100%
+
+.aboutContent
+  max-width: 80%
+  margin: 0 auto
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 3em
+  font-size: 1.2em
+
+.contactPage
+  font-family: 'Roboto', sans-serif
+
+  h1
+    text-align: center
+
+.contactForm
+  max-width: 17%
+  margin: 0 auto
+  text-align: center
+
+  input
+    width: 100%
+    margin: 2em 0
+    &[type=submit]
+      background: white
+      padding: 1em
+      border: 0.15em solid blue
+      border-radius: 100em
+      box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.16)
+
+
+  select
+    margin: 1em 0
+
+  textarea
+    @extend select

@@ -10,6 +10,6 @@ $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $bu
 
 echo $buffer;
 include 'private/includes/templates/navigation.php';
-include 'private/includes/templates/underConstruction.php';
+include 'private/includes/templates/aboutGrumpsContent.php';
 include 'private/includes/templates/footer.php';
 ?>

@@ -1,4 +1,12 @@
 /*Reset*/
+@font-face
+  font-family: 'barthowheelregular'
+  src: url('../fonts/barthowheel_regular-webfont.woff2') format('woff2'), url('../fonts/barthowheel_regular-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap')
+
 html
   margin: 0
   padding: 0
@@ -8,16 +16,8 @@ html
 
 body
   @extend html
+  font-family: 'barthowheelregular', Arial, sans-serif
 
 .container
   min-height: 100%
   position: relative
-
-@font-face
-    font-family: 'barthowheelregular'
-    src: url('../fonts/barthowheel_regular-webfont.woff2') format('woff2'), url('../fonts/barthowheel_regular-webfont.woff') format('woff')
-    font-weight: normal
-    font-style: normal
-
-*
-  font-family: 'barthowheelregular', Arial, sans-serif

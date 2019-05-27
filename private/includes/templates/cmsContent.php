@@ -7,4 +7,3 @@
     <label for="password">Password</label> <br>
     <input type="password" name="" value="">
   </div>
-</div>

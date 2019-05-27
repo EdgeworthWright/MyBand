@@ -1,6 +1,7 @@
 </div>
 
 <div class="tourpage">
+  <h1>The Final Party</h1>
   <ul>
     <li>
       <div class="tourdate">

@@ -1,4 +1,11 @@
 /*Reset*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap");
+@font-face {
+  font-family: "barthowheelregular";
+  src: url("../fonts/barthowheel_regular-webfont.woff2") format("woff2"), url("../fonts/barthowheel_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -7,19 +14,13 @@ html, body {
   overflow-x: hidden;
 }
 
+body {
+  font-family: "barthowheelregular", Arial, sans-serif;
+}
+
 .container {
   min-height: 100%;
   position: relative;
-}
-
-@font-face {
-  font-family: "barthowheelregular";
-  src: url("../fonts/barthowheel_regular-webfont.woff2") format("woff2"), url("../fonts/barthowheel_regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-* {
-  font-family: "barthowheelregular", Arial, sans-serif;
 }
 
 .headerImage {
@@ -141,6 +142,9 @@ nav .rightNav {
   margin: 75px auto;
   padding-bottom: 90px;
 }
+.tourpage h1 {
+  text-align: center;
+}
 .tourpage ul {
   margin: 0 auto;
   font-size: 2em;
@@ -208,6 +212,48 @@ nav .rightNav {
   transform: rotate(-15deg);
 }
 
+.aboutPage h1 {
+  text-align: center;
+}
+.aboutPage img {
+  max-width: 100%;
+}
+
+.aboutContent {
+  max-width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+  font-size: 1.2em;
+}
+
+.contactPage {
+  font-family: "Roboto", sans-serif;
+}
+.contactPage h1 {
+  text-align: center;
+}
+
+.contactForm {
+  max-width: 17%;
+  margin: 0 auto;
+  text-align: center;
+}
+.contactForm input {
+  width: 100%;
+  margin: 2em 0;
+}
+.contactForm input[type=submit] {
+  background: white;
+  padding: 1em;
+  border: 0.15em solid blue;
+  border-radius: 100em;
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.16);
+}
+.contactForm select, .contactForm textarea {
+  margin: 1em 0;
+}
 .footer {
   position: absolute;
   bottom: -80px;
@@ -277,6 +323,21 @@ nav .rightNav {
     transform: rotate(0);
     transform: scale(1);
   }
+
+  .aboutContent {
+    display: block;
+  }
+
+  .contactForm {
+    max-width: 50%;
+  }
+  .contactForm input {
+    width: 10em;
+    height: 3em;
+  }
+  .contactForm textarea {
+    width: 10em;
+  }
 }
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
   .navImage {
@@ -310,6 +371,17 @@ nav .rightNav {
   .tourpage .tourtickets a:hover {
     transform: rotate(0);
     transform: scale(1);
+  }
+
+  .contactForm {
+    max-width: 50%;
+  }
+  .contactForm input {
+    width: 20em;
+    height: 3em;
+  }
+  .contactForm textarea {
+    width: 20em;
   }
 }
 
