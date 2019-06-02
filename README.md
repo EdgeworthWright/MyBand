@@ -11,10 +11,14 @@ Fork: https://github.com/EdgeworthWright/MyBand-Starter
 Fast Links:
 
 
-| Ding                | Link                                                                                                                                                      |
-| ------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Debriefing          | [link](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/debriefing.docx)                                                                |
-| Project Plan        | [link](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/project%20plan.docx)                                                            |
-| User Stories        | [link](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/userstories.xlsx)                                                               | 
-| Functioneel Ontwerp | [link](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/FO.docx)                                                                        |
-| Wireframes          | [online](25890.hosts2.ma-cloud.nl/MyBand/private/design/) of [bestand](https://github.com/EdgeworthWright/MyBand-Starter/blob/master/doc/wireframes.rp)   |
+| Ding                | Link                                                                                                                                                                                            |
+| ------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Debriefing          | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/debriefing.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/debriefing.pdf)          |
+| Project Plan        | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/project%20plan.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/project%20plan.pdf)  |
+| User Stories        | [excel](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/userstories.xlsx)                                                                                                    | 
+| Functioneel Ontwerp | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/FO.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/FO.pdf)                          |
+| Wireframes          | [online](25890.hosts2.ma-cloud.nl/MyBand/private/design/) of [axure](https://github.com/EdgeworthWright/MyBand-Starter/blob/master/doc/wireframes.rp)                                           |
+| Logboek             | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/logboek.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/logboek.pdf)                |
+| sprint 1            | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint1.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint1.pdf)                | 
+| sprint 2            | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint2.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint2.pdf)                |
+| URLs                | [md](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/urlList.md)                                                                                                             |
