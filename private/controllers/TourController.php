@@ -8,7 +8,11 @@
  *
  */
 class TourController {
-	function tour(){
-		include 'private/views/tour.php';
+	function tour() {
+		$tours = getAllTourdates('tourDate ASC');
+		$template_engine = get_template_engine();
+		echo $template_engine->render( 'tour', [
+			'tours' => $tours
+		]);
 	}
 }

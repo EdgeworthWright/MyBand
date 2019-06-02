@@ -39,7 +39,7 @@ require 'private/includes/AltoRouter.php';
  * Verder willen we nog wat andere zaken instellen en goed zetten
  * Dit staat in het bestand private/includes/init.php
  */
-$CONFIG = require 'private/includes/config.example.php';
+$CONFIG = require 'private/includes/config.php';
 require 'private/includes/init.php';
 $router = new AltoRouter();
 //Als jouw public folder niet te zien is als je naar http://localhoist gaat stel dan het juiste basePath in (pas dit pad aan naar jouw situatie)
@@ -55,6 +55,7 @@ $router->map( 'GET', '/about-me', 'AboutMeController#aboutMe' );
 $router->map( 'GET', '/contact', 'ContactController#contact' );
 $router->map( 'GET', '/search', 'SearchController#search' );
 $router->map( 'GET', '/cms', 'CmsController#cms' );
+$router->map( 'POST', '/cms-form', 'CmsController#cms' );
 // Daarna vragen we $router of de huidige URL getmatcht kan worden.
 $match = $router->match();
 /**

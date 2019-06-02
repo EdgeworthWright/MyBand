@@ -9,6 +9,10 @@
  */
 class AboutMeController {
 	function aboutMe(){
-		include 'private/views/aboutMe.php';
+		$abouts = getAllAbout('id ASC');
+		$template_engine = get_template_engine();
+		echo $template_engine->render( 'aboutMe', [
+			'abouts' => $abouts
+		]);
 	}
 }

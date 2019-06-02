@@ -9,6 +9,19 @@
  */
 class CmsController {
 	function cms(){
-		include 'private/views/cms.php';
+		session_start();
+		$logreg = login();
+		if (isset($_GET['logout'])) {
+		  logout();
+		}
+		$updates 	= videoEditing();
+		$updates2 = tourDates();
+		$updates3 = aboutThing();
+		$template_engine = get_template_engine();
+		echo $template_engine->render('cms', [
+			'updates' 	=> $updates,
+			'updates2' 	=> $updates2,
+			'updates3' 	=> $updates3
+		]);
 	}
 }

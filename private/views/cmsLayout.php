@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>MyBand</title>
+  <title><?php echo $this->section( 'title', 'myBand') ?></title>
   <link rel="stylesheet" href="style/main.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
@@ -20,5 +20,28 @@
 
 <body>
   <div class="container">
-    <div class="header">
-      <img class="headerImage" src="images/ggbanner.jpg" alt="">
+   <div class="header">
+
+     <nav>
+       <ul class="leftNav">
+         <li><a href="/">Home</a></li>
+         <li><a href="/tour">Tour</a></li>
+         <li><a href="/about-grumps">About Grumps</a></li>
+       </ul>
+
+       <img class="navImage hideOnSmall" src="images/ggpfp.jpg" alt="">
+
+       <ul class="rightNav">
+         <li><a href="/about-me">About Me</a></li>
+         <li><a href="/contact">Contact</a></li>
+         <li><a class="searchLink" href="/search">Search</a></li>
+       </ul>
+     </nav>
+   </div>
+
+   <div class="<?php echo $this->section( 'content_div' ); ?>">
+     <?php echo $this->section( 'content' ) ?>
+   </div>
+ </div>
+</body>
+</html>

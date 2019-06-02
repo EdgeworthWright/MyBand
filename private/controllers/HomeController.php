@@ -8,7 +8,15 @@
  *
  */
 class HomeController {
-	function homepage(){
-		include 'private/views/home.php';
+	// function homepage(){
+	// 	include 'private/views/home.php';
+	// }
+	function homepage() {
+		//Roep de function in het model aan om alle huisjes uit de database op te halen
+		$videos = getAllVideos('videoUploadDate DESC');
+		$template_engine = get_template_engine();
+		echo $template_engine->render( 'home', [
+			'videos' => $videos
+		] );
 	}
 }

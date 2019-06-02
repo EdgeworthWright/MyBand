@@ -154,7 +154,7 @@ nav .rightNav {
   flex-wrap: nowrap;
   position: relative;
   max-width: 60%;
-  max-height: 174px;
+  max-height: 200px;
   left: 20%;
   border-radius: 100em;
   transition: 0.15s;
@@ -192,6 +192,7 @@ nav .rightNav {
 
 .tourlocation {
   justify-content: flex-start;
+  width: 20%;
 }
 
 .tourtickets {
@@ -264,7 +265,7 @@ nav .rightNav {
   padding-top: 0.3em;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (min-width: 360px) and (max-width: 767px) {
   .hideOnSmall {
     display: none;
   }
@@ -290,7 +291,7 @@ nav .rightNav {
   .latestVideos {
     text-align: center;
     position: relative;
-    right: 20%;
+    right: 0%;
     margin-bottom: 3em;
   }
   .latestVideos a {
@@ -322,6 +323,10 @@ nav .rightNav {
   .tourpage .tourtickets a:hover {
     transform: rotate(0);
     transform: scale(1);
+  }
+
+  .tourlocation {
+    width: 100%;
   }
 
   .aboutContent {

@@ -9,6 +9,10 @@
  */
 class AboutGrumpsController {
 	function aboutGrumps(){
-		include 'private/views/aboutGrumps.php';
+		$abouts = getAllAbout('id ASC');
+		$template_engine = get_template_engine();
+		echo $template_engine->render( 'aboutGrumps', [
+			'abouts' => $abouts
+		]);
 	}
 }
