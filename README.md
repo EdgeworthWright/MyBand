@@ -21,4 +21,5 @@ Fast Links:
 | Logboek             | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/logboek.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/logboek.pdf)                |
 | sprint 1            | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint1.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint1.pdf)                | 
 | sprint 2            | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint2.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint2.pdf)                |
+| sprint 2            | [word](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint3.docx) of [pdf](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/sprint3.pdf)                |
 | URLs                | [md](https://github.com/EdgeworthWright/MyBand/blob/master/documentatie/urlList.md)                                                                                                             |
