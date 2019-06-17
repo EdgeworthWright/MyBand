@@ -13,9 +13,10 @@ class SearchController {
 	// }
 
 	function search(){
-		//Hier haal je de template engine op, die weet dat de views in private/views staan
+		$searchResults = searchSite($_GET['txt']);
 		$template_engine = get_template_engine();
-		//De template engine opdracht geven de juiste view weergeven: homepage (de ".php" mag je weglaten uit de naam van de view)
-		echo $template_engine->render( 'search' );
+		echo $template_engine->render( 'search', [
+			'searchResults' => $searchResults
+		]);
 	}
 }

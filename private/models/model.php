@@ -1,18 +1,65 @@
 <?php
 function getAllVideos($order) {
 	$conn = dbConnect();
-	$statement = $conn->query("SELECT * FROM video ORDER BY ".$order);
+	$statement = $conn->query("SELECT * FROM mybandalldata WHERE type = 'video' ORDER BY ".$order);
 	$result = [];
 
 	while ($video = $statement->fetch(PDO::FETCH_ASSOC)) {
 		$result[] = $video;
 	}
+	json_encode($result);
+	return $result;
+}
+
+function getAllVideosPagination() {
+	$conn = dbConnect();
+	define("ROW_PER_PAGE", 3);
+
+	$sql = 'SELECT * FROM mybandalldata WHERE type = "video" ORDER BY videoUploadDate DESC';
+
+	$per_page_html = '';
+	$page = 1;
+	$start = 0;
+	if (!empty($_POST['page'])) {
+		$page = $_POST['page'];
+		$start = ($page-1) * ROW_PER_PAGE;
+	}
+	$limit = ' LIMIT ' . $start . ',' . ROW_PER_PAGE;
+
+	$pagination_stmt = $conn->prepare($sql);
+	$pagination_stmt->execute();
+
+	$row_count = $pagination_stmt->rowCount();
+	if (!empty($row_count)) {
+	 	$page_count = ceil($row_count/ROW_PER_PAGE);
+		if ($page_count > 1) {
+	 		for ($i=1; $i <= $page_count; $i++) {
+	 			if ($i == $page) {
+	 			 	$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="page currentPage">';
+       	 } else {
+        	$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="page">';
+				}
+	 		}
+		}
+	}
+
+	$query = $sql.$limit;
+	$stmt = $conn->prepare($query);
+	$stmt->execute();
+	$result = [];
+
+ 	while ($video = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		$result[] = $video;
+	}
+
+	echo "<form action='/' method='POST'>$per_page_html</form>";
+
 	return $result;
 }
 
 function getAllTourdates($order) {
 	$conn = dbConnect();
-	$statement = $conn->query("SELECT * FROM tour ORDER BY ".$order);
+	$statement = $conn->query("SELECT * FROM mybandalldata WHERE type = 'tour' ORDER BY ".$order);
 	$result = [];
 
 	while ($tour = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -23,12 +70,95 @@ function getAllTourdates($order) {
 
 function getAllAbout($order) {
 	$conn = dbConnect();
-	$statement = $conn->query("SELECT * FROM about ORDER BY ".$order);
+	$statement = $conn->query("SELECT * FROM mybandabout ORDER BY ".$order);
 	$result = [];
 
 	while ($about = $statement->fetch(PDO::FETCH_ASSOC)) {
 		$result[] = $about;
 	}
+	return $result;
+}
+
+function searchSite($text) {
+	$conn = dbConnect();
+
+	$text = htmlspecialchars($text);
+
+	define("ROW_PER_PAGE", 10);
+
+ 	$searchKeyword = '';
+	if (!empty($_POST['search']['keyword'])) {
+		$searchKeyword = $_POST['search']['keyword'];
+	}
+
+	// -- FIXME: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near  UPPER(videoDescription) LIKE concat(%, UPPER(Bruh), %), UPPER at line 2
+	$sql = "SELECT * FROM mybandalldata
+					WHERE UPPER(videoTitle) LIKE concat('%', UPPER(:videoTitle), '%') OR
+					UPPER(videoDescription) LIKE concat('%', UPPER(:videoDescription), '%') OR
+					UPPER(videoUploadDate) LIKE concat('%', UPPER(:videoUploadDate), '%') OR
+					UPPER(tourDate) LIKE concat('%', UPPER(:tourDate), '%') OR
+					UPPER(tourLocation) LIKE concat('%', UPPER(:tourLocation), '%') OR
+					UPPER(tourLocation2) LIKE concat('%', UPPER(:tourLocation2), '%') OR
+					UPPER(tourAvailability) LIKE concat('%', UPPER(:tourAvailability), '%') OR
+					UPPER(type) LIKE concat('%', UPPER(:type), '%')";
+
+	$per_page_html = '';
+	$page = 1;
+	$start = 0;
+	if (!empty($_POST['page'])) {
+		$page = $_POST['page'];
+		$start = ($page-1) * ROW_PER_PAGE;
+	}
+	$limit = ' LIMIT ' . $start . ',' . ROW_PER_PAGE;
+
+	$stmt = $conn->prepare($sql);
+	$stmt->bindValue(':keyword', '%' . $searchKeyword . '%', PDO::PARAM_STR);
+	$stmt->execute(array(
+		'videoTitle' => $text,
+		'videoDescription' => $text,
+		'videoUploadDate' => $text,
+		'tourDate' => $text,
+		'tourLocation' => $text,
+		'tourLocation2' => $text,
+		'tourAvailability' => $text,
+		'type' => $text
+	));
+
+	$row_count = $stmt->rowCount();
+	if (!empty($row_count)) {
+		$page_count = ceil($row_count/ROW_PER_PAGE);
+		if ($page_count > 1) {
+			for ($i=1; $i <= $page_count; $i++) {
+				if ($i == $page) {
+	 			 	$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="page currentPage">';
+       	 } else {
+        	$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="page">';
+				}
+			}
+		}
+	}
+
+	$query = $sql.$limit;
+	$statement = $conn->prepare($query);
+	$statement->bindValue(':keyword', '%' . $searchKeyword . '%', PDO::PARAM_STR);
+	$statement->execute(array(
+		'videoTitle' => $text,
+		'videoDescription' => $text,
+		'videoUploadDate' => $text,
+		'tourDate' => $text,
+		'tourLocation' => $text,
+		'tourLocation2' => $text,
+		'tourAvailability' => $text,
+		'type' => $text
+	));
+
+	$result = [];
+	while ($searchResult = $statement->fetch(PDO::FETCH_ASSOC)) {
+		$result[] = $searchResult;
+	}
+
+	echo "<form action='/search?txt=' method='POST'>$per_page_html</form>";
+
 	return $result;
 }
 
@@ -58,7 +188,7 @@ function login() {
 		if (!empty($errors)) {
 			print_r($errors);
 		} else {
-			$sql = "INSERT INTO account (username, password, type) VALUES (?,?,'Admin')";
+			$sql = "INSERT INTO mybandaccount (username, password, type) VALUES (?,?,'Admin')";
 			$stmt = $conn->prepare($sql);
 
 			$data = array(
@@ -69,7 +199,7 @@ function login() {
 			$stmt->execute($data);
 		}
 
-		header('Location: /');
+		header('Location: /MyBand/');
 	}
 
 
@@ -94,7 +224,7 @@ function login() {
 			print_r($errors);
 			exit();
 		} else {
-			$sql = 'SELECT * FROM account WHERE username = ?';
+			$sql = 'SELECT * FROM mybandaccount WHERE username = ?';
 
 			$statement = $conn->prepare($sql);
 
@@ -153,7 +283,7 @@ function login() {
 function logout() {
 	session_start();
 	session_destroy();
-	header('Location: /cms');
+	header('Location: /MyBand/cms');
 	exit();
 }
 
@@ -170,7 +300,7 @@ function videoEditing() {
 		$videoThumbnail 	= filter_var($_POST['videoThumbnail'], FILTER_SANITIZE_URL);
 		$videoUploadDate 	= filter_var($_POST['videoUploadDate'], FILTER_SANITIZE_STRING);
 
-		$sql = 'INSERT INTO video (videoTitle, videoLink, videoDescription, videoThumbnail, videoUploadDate) VALUES (?,?,?,?,?)';
+		$sql = 'INSERT INTO mybandalldata (videoTitle, videoLink, videoDescription, videoThumbnail, videoUploadDate, type) VALUES (?,?,?,?,?, "video")';
 
 		$stmt = $conn->prepare($sql);
 
@@ -186,7 +316,7 @@ function videoEditing() {
 
 		echo "Video uploaded.";
 
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['editVideo'])) {
@@ -197,7 +327,7 @@ function videoEditing() {
 		$videoThumbnail 	= filter_var($_POST['videoThumbnail'.$id], FILTER_SANITIZE_URL);
 		$videoUploadDate 	= filter_var($_POST['videoUploadDate'.$id], FILTER_SANITIZE_STRING);
 
-		$sql = "UPDATE video
+		$sql = "UPDATE mybandalldata
 						SET videoTitle		=	'$videoTitle',
 						videoDescription	=	'$videoDescription',
 						videoLink					=	'$videoLink',
@@ -207,14 +337,14 @@ function videoEditing() {
 
 		$stmt = $conn->query($sql);
 
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['deleteVideo'])) {
 		$id = $_POST['id'];
-		$sql = "DELETE FROM video WHERE id=$id";
+		$sql = "DELETE FROM mybandalldata WHERE id=$id";
 		$stmt = $conn->query($sql);
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	return $get;
@@ -231,7 +361,7 @@ function tourDates() {
 		$tourAvailability = filter_var($_POST['tourAvailability'], FILTER_SANITIZE_STRING);
 		$tourTicketLink 	= filter_var($_POST['tourTicketLink'], FILTER_SANITIZE_URL);
 
-		$sql = "INSERT INTO tour (tourDate, tourLocation, tourLocation2, tourAvailability, tourTicketLink) VALUES (?,?,?,?,?)";
+		$sql = "INSERT INTO mybandalldata (tourDate, tourLocation, tourLocation2, tourAvailability, tourTicketLink, type) VALUES (?,?,?,?,?, 'tour')";
 
 		$stmt = $conn->prepare($sql);
 
@@ -246,7 +376,7 @@ function tourDates() {
 		$stmt->execute($data);
 
 		echo "tour added";
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['editTour'])) {
@@ -257,7 +387,7 @@ function tourDates() {
 		$tourAvailability = filter_var($_POST['tourAvailability'.$id], FILTER_SANITIZE_STRING);
 		$tourTicketLink 	= filter_var($_POST['tourTicketLink'.$id], FILTER_SANITIZE_URL);
 
-		$sql = "UPDATE tour
+		$sql = "UPDATE mybandalldata
 						SET tourDate			=	'$tourDate',
 						tourLocation			=	'$tourLocation',
 						tourLocation2			=	'$tourLocation2',
@@ -267,14 +397,14 @@ function tourDates() {
 
 		$stmt = $conn->query($sql);
 
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['deleteTour'])) {
 		$id = $_POST['id'];
-		$sql = "DELETE FROM tour WHERE id=$id";
+		$sql = "DELETE FROM mybandalldata WHERE id=$id";
 		$stmt = $conn->query($sql);
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	return $get;
@@ -288,7 +418,7 @@ function aboutThing() {
 		$aboutText 				= filter_var($_POST['aboutText'], FILTER_SANITIZE_STRING);
 		$aboutPicture 		= filter_var($_POST['aboutPicture'], FILTER_SANITIZE_STRING);
 
-		$sql = "INSERT INTO about (aboutText, aboutPicture) VALUES (?,?)";
+		$sql = "INSERT INTO mybandabout (aboutText, aboutPicture) VALUES (?,?)";
 
 		$stmt = $conn->prepare($sql);
 
@@ -300,7 +430,7 @@ function aboutThing() {
 		$stmt->execute($data);
 
 		echo "About Added";
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['editAbout'])) {
@@ -308,21 +438,25 @@ function aboutThing() {
 		$aboutText 				= filter_var($_POST['aboutText'.$id], FILTER_SANITIZE_STRING);
 		$aboutPicture 		= filter_var($_POST['aboutPicture'.$id], FILTER_SANITIZE_STRING);
 
-		$sql = "UPDATE tour
+		$sql = "UPDATE mybandabout
 						SET aboutText			=	'$aboutText',
 						aboutPicture			=	'$aboutPicture'
 						WHERE id 					= $id";
 
 		$stmt = $conn->query($sql);
 
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 
 	if (isset($_POST['deleteAbout'])) {
 		$id = $_POST['id'];
-		$sql = "DELETE FROM about WHERE id=$id";
+		$sql = "DELETE FROM mybandabout WHERE id=$id";
 		$stmt = $conn->query($sql);
-		header('Location: /cms');
+		header('Location: /MyBand/cms');
 	}
 	return $get;
+}
+
+function contactMail() {
+	
 }

@@ -44,18 +44,20 @@ require 'private/includes/init.php';
 $router = new AltoRouter();
 //Als jouw public folder niet te zien is als je naar http://localhoist gaat stel dan het juiste basePath in (pas dit pad aan naar jouw situatie)
 // $router->setBasePath('/bewijzenmap/periode1.4/bap/MyBandStarter/public');
-/**
+/**9*
  * Hier stellen we de juiste "routes" in voor onze website
  * We vertellen de router welke url naar welk stukje code (de controller) moet worden doorgestuuurd.
  */
-$router->map( 'GET', '/', 'HomeController#homepage' );
-$router->map( 'GET', '/tour', 'TourController#tour' );
-$router->map( 'GET', '/about-grumps', 'AboutGrumpsController#aboutGrumps' );
-$router->map( 'GET', '/about-me', 'AboutMeController#aboutMe' );
-$router->map( 'GET', '/contact', 'ContactController#contact' );
-$router->map( 'GET', '/search', 'SearchController#search' );
-$router->map( 'GET', '/cms', 'CmsController#cms' );
-$router->map( 'POST', '/cms-form', 'CmsController#cms' );
+$router->map( 'GET', '/MyBand/', 'HomeController#homepage' );
+$router->map( 'POST', '/MyBand/', 'HomeController#homepage' );
+$router->map( 'GET', '/MyBand/tour', 'TourController#tour' );
+$router->map( 'GET', '/MyBand/about-grumps', 'AboutGrumpsController#aboutGrumps' );
+$router->map( 'GET', '/MyBand/about-me', 'AboutMeController#aboutMe' );
+$router->map( 'GET', '/MyBand/contact', 'ContactController#contact' );
+$router->map( 'POST', '/MyBand/contact', 'ContactController#contact' );
+$router->map( 'GET', '/MyBand/search', 'SearchController#search' );
+$router->map( 'GET', '/MyBand/cms', 'CmsController#cms' );
+$router->map( 'POST', '/MyBand/cms-form', 'CmsController#cms' );
 // Daarna vragen we $router of de huidige URL getmatcht kan worden.
 $match = $router->match();
 /**
@@ -81,5 +83,5 @@ if ( is_array( $match ) && is_callable( $match['target'] ) ) {
 } else {
 	// Er is geen match dus een 404 pagina
 	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found' );
-	echo '404: Onbekende pagina';
+	require 'private/views/404.php';
 }

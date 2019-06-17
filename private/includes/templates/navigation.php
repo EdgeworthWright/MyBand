@@ -10,6 +10,6 @@
   <ul class="rightNav">
     <li><a href="/about-me">About Me</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a class="searchLink" href="/search">Search</a></li>
+    <li><a class="searchLink" href="/search?txt=">Search</a></li>
   </ul>
 </nav>

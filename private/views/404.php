@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title><?php echo $this->section( 'title', 'myBand') ?></title>
+  <title>404</title>
   <link rel="stylesheet" href="style/main.css">
   <script src="node_modules\jquery\dist\jquery.js" charset="utf-8"></script>
 
@@ -42,8 +42,9 @@
       </nav>
     </div>
 
-    <div class="<?php echo $this->section( 'content_div' ); ?>">
-      <?php echo $this->section( 'content' ) ?>
+    <div class="fourofour">
+      <h1>Whoa there buddy!</h1>
+      <h3>It seems that this page does not exist!</h3>
     </div>
 
     <div class="footer">

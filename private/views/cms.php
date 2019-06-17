@@ -41,7 +41,7 @@ main
 </style>
 <?php } ?>
 
-<form method="POST" class="cmsLogin" action="/cms-form">
+<form method="POST" class="cmsLogin" action="/MyBand/cms-form">
   <h1>Log in</h1>
   <label for="username">Username</label> <br>
   <input type="text" name="username" id="username"> <br>
@@ -51,7 +51,9 @@ main
   <input type="submit" name="login" value="login">
 </form>
 
-<form class="upload" action="/cms-form" method="POST">
+
+
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Upload Video</h1>
   <label for="videoTitle">Video Title</label> <br>
   <input type="text" name="videoTitle" id="videoTitle" placeholder="BEST OF Game Grumps - 2019!"> <br>
@@ -73,7 +75,7 @@ main
 
 <div class="upload">
   <h1>Edit Video</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -101,7 +103,7 @@ main
 
 <div class="upload">
   <h1>Delete Video</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -127,7 +129,7 @@ main
   </form>
 </div>
 
-<form class="upload" action="/cms-form" method="POST">
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Add Tour</h1>
   <label for="tourDate">Tour Date</label> <br>
   <input type="text" name="tourDate" id="tourDate" placeholder="2019-06-02"> <br>
@@ -149,7 +151,7 @@ main
 
 <div class="upload">
   <h1>Edit Tour</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -177,7 +179,7 @@ main
 
 <div class="upload">
   <h1>Delete Tour</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -203,7 +205,7 @@ main
   </form>
 </div>
 
-<form class="upload" action="/cms-form" method="POST">
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Add About</h1>
   <label for="aboutText">About Text</label> <br>
   <textarea name="aboutText" id="aboutText" placeholder="I am..."></textarea> <br>
@@ -216,7 +218,7 @@ main
 
 <div class="upload">
   <h1>Edit About</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -238,7 +240,7 @@ main
 
 <div class="upload">
   <h1>Delete About</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>

@@ -9,6 +9,7 @@
  */
 class ContactController {
 	function contact(){
-		include 'private/views/contact.php';
+		$template_engine = get_template_engine();
+		echo $template_engine->render( 'contact' );
 	}
 }

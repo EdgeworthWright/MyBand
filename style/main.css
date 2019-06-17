@@ -108,19 +108,23 @@ nav .rightNav {
   position: relative;
   top: 5%;
   left: 14.7%;
-  padding: 0.7em 1.3em;
+  padding: 1em 1.7em;
   margin: 0.2em;
-  border-radius: 1em;
+  border-radius: .5em;
   border: 1px solid black;
-  background: red;
+  background: #f5883b;
   color: white;
   text-decoration: none;
 }
 
 .currentPage {
-  background: pink;
+  background: #f98;
 }
 
+.paginationForm {
+  position: absolute;
+  top: 50%;
+}
 .sidebar {
   grid-row: 1;
   grid-column: 1;
@@ -137,45 +141,45 @@ nav .rightNav {
   display: none;
 }
 
-.tourpage {
+.tourpage, .searchPage {
   box-sizing: border-box;
   margin: 75px auto;
   padding-bottom: 90px;
 }
-.tourpage h1 {
+.tourpage h1, .searchPage h1 {
   text-align: center;
 }
-.tourpage ul {
+.tourpage ul, .searchPage ul {
+  list-style: none;
+}
+.tourpage ul li:not(.video), .searchPage ul li:not(.video) {
   margin: 0 auto;
   font-size: 2em;
-}
-.tourpage li {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
   max-width: 60%;
   max-height: 200px;
-  left: 20%;
   border-radius: 100em;
   transition: 0.15s;
   margin-bottom: 1em;
 }
-.tourpage li:hover {
+.tourpage ul li:not(.video):hover, .searchPage ul li:not(.video):hover {
   background: #ECF1F5;
 }
-.tourpage li:hover .tourdate {
+.tourpage ul li:not(.video):hover .tourdate, .searchPage ul li:not(.video):hover .tourdate {
   transform: scale(1.5);
 }
-.tourpage li:last-of-type {
+.tourpage ul li:not(.video):last-of-type, .searchPage ul li:not(.video):last-of-type {
   margin-bottom: 1em;
 }
-.tourpage li div {
+.tourpage ul li:not(.video) div, .searchPage ul li:not(.video) div {
   margin: auto;
 }
-.tourpage li .tourdate {
+.tourpage ul li:not(.video) .tourdate, .searchPage ul li:not(.video) .tourdate {
   transition: 0.5s;
 }
-.tourpage .page {
+.tourpage ul .page, .searchPage ul .page {
   top: 8%;
   left: 25%;
 }
@@ -255,6 +259,38 @@ nav .rightNav {
 .contactForm select, .contactForm textarea {
   margin: 1em 0;
 }
+.searchPage ul li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 0 auto;
+  position: relative;
+  max-width: 60%;
+  max-height: 200px;
+  margin-bottom: 1em;
+  grid-gap: 1em;
+}
+.searchPage h3 {
+  grid-row: 2;
+  vertical-align: center;
+}
+.searchPage img {
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#searchBox {
+  position: relative;
+  left: 44%;
+}
+
+#searchBox input[type=submit] {
+  padding: .2em 2em;
+  background: #F5883B;
+  border-radius: .5em
+}
+
 .footer {
   position: absolute;
   bottom: -80px;
@@ -299,7 +335,7 @@ nav .rightNav {
     left: 0%;
   }
 
-  .tourpage li {
+  .tourpage li, .searchPage li {
     background: rgba(0, 0, 0, 0.16);
     flex-wrap: wrap;
     padding-bottom: 7em;
@@ -307,20 +343,20 @@ nav .rightNav {
     text-align: center;
     max-height: 210px;
   }
-  .tourpage li:hover {
+  .tourpage li:hover, .searchPage li:hover {
     background: rgba(0, 0, 0, 0.16);
   }
-  .tourpage li:hover .tourdate {
+  .tourpage li:hover .tourdate, .searchPage li:hover .tourdate {
     transform: scale(1);
   }
-  .tourpage .tourtickets {
+  .tourpage .tourtickets, .searchPage .tourtickets {
     flex: 0 0 100%;
     text-align: center;
   }
-  .tourpage .tourtickets a {
+  .tourpage .tourtickets a, .searchPage .tourtickets a {
     padding: 0.3em 2em;
   }
-  .tourpage .tourtickets a:hover {
+  .tourpage .tourtickets a:hover, .searchPage .tourtickets a:hover {
     transform: rotate(0);
     transform: scale(1);
   }
@@ -353,27 +389,27 @@ nav .rightNav {
     padding-bottom: 0;
   }
 
-  .tourpage li {
+  .tourpage li, .searchPage li {
     flex-wrap: wrap;
     margin-bottom: 4em;
   }
-  .tourpage li:hover {
+  .tourpage li:hover, .searchPage li:hover {
     background: transparent;
   }
-  .tourpage li:hover .tourdate {
+  .tourpage li:hover .tourdate, .searchPage li:hover .tourdate {
     transform: scale(1);
   }
-  .tourpage .page {
+  .tourpage .page, .searchPage .page {
     top: 4em;
   }
-  .tourpage .tourtickets {
+  .tourpage .tourtickets, .searchPage .tourtickets {
     flex: 0 0 100%;
     text-align: center;
   }
-  .tourpage .tourtickets a {
+  .tourpage .tourtickets a, .searchPage .tourtickets a {
     padding: 0.3em 2em;
   }
-  .tourpage .tourtickets a:hover {
+  .tourpage .tourtickets a:hover, .searchPage .tourtickets a:hover {
     transform: rotate(0);
     transform: scale(1);
   }
