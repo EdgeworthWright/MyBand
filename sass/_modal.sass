@@ -1,0 +1,42 @@
+.modaalKnop
+  position: relative
+  left: 80%
+  font-size: 1.2em
+  color: #0000EE
+  cursor: pointer
+  &:hover
+    cursor: pointer
+    text-decoration: underline
+
+
+/* Modale venster */
+.container
+  .modaalContent
+    display: none
+
+
+.modaalAchtergrond
+  position: absolute
+  top: 0
+  left: 0%
+  width: 100vw
+  height: 100vh
+  background-color: rgba(0, 0, 0, 0.8)
+  display: grid
+  justify-items: center
+  align-items: center
+  animation: blackout .3s forwards
+
+
+.modaal
+  max-width: 80%
+  padding: 1em
+  /*border-radius: 2em*/
+  background-color: #fff
+  animation: rounding .5s forwards
+
+
+.sluitKnop
+  position: relative
+  left: 95%
+  cursor: pointer

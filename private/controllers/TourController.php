@@ -10,6 +10,7 @@
 class TourController {
 	function tour() {
 		$tours = getAllTourdates('tourDate ASC');
+		$details = getTourDeets();
 		$template_engine = get_template_engine();
 		echo $template_engine->render( 'tour', [
 			'tours' => $tours

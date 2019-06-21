@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title><?php echo $this->section( 'title', 'myBand') ?></title>
-  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="css/main.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">

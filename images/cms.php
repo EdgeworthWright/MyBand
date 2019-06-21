@@ -24,7 +24,7 @@ main
 <?php $this->stop( 'content_div' ) ?>
 
 <?php if (!empty($_SESSION['account_type'])) { echo "logged in";?>
-<a href="/cms?logout=true">Log out</a>
+<a href="/MyBand/cms?logout=true">Log out</a>
 <style>
 .cmsLogin {
   display: none;
@@ -41,7 +41,7 @@ main
 </style>
 <?php } ?>
 
-<form method="POST" class="cmsLogin" action="/cms-form">
+<form method="POST" class="cmsLogin" action="/MyBand/cms-form">
   <h1>Log in</h1>
   <label for="username">Username</label> <br>
   <input type="text" name="username" id="username"> <br>
@@ -53,7 +53,7 @@ main
 
 
 
-<form class="upload" action="/cms-form" method="POST">
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Upload Video</h1>
   <label for="videoTitle">Video Title</label> <br>
   <input type="text" name="videoTitle" id="videoTitle" placeholder="BEST OF Game Grumps - 2019!"> <br>
@@ -70,12 +70,12 @@ main
   <label for="videoUploadDate">Video Upload Date</label> <br>
   <input type="text" name="videoUploadDate" id="videoUploadDate" placeholder="2019-05-31"> <br>
 
-  <input type="submit" name="newVideo" value="Upload Video!">
+  <input type="submit" name="newVideo" value="Upload Video!" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
 </form>
 
 <div class="upload">
   <h1>Edit Video</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -97,13 +97,13 @@ main
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="editVideo" value="Edit!">
+    <input type="submit" name="editVideo" value="Edit!" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>
 
 <div class="upload">
   <h1>Delete Video</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -125,11 +125,11 @@ main
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="deleteVideo" value="Delete">
+    <input type="submit" name="deleteVideo" value="Delete" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>
 
-<form class="upload" action="/cms-form" method="POST">
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Add Tour</h1>
   <label for="tourDate">Tour Date</label> <br>
   <input type="text" name="tourDate" id="tourDate" placeholder="2019-06-02"> <br>
@@ -146,12 +146,12 @@ main
   <label for="tourTicketLink">Tour Ticket Link</label> <br>
   <input type="text" name="tourTicketLink" id="tourTicketLink" placeholder="Link on gg site"> <br>
 
-  <input type="submit" name="newTour" value="Add Tour">
+  <input type="submit" name="newTour" value="Add Tour" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
 </form>
 
 <div class="upload">
   <h1>Edit Tour</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -160,7 +160,6 @@ main
         <td>Tour Building</td>
         <td>Tour Availability</td>
         <td>Tour Ticket Link</td>
-        <td>Tour Details</td>
         <td>ID</td>
       </tr>
       <?php foreach ($updates2 as $update): ?>
@@ -170,18 +169,17 @@ main
           <td><input type="text" name="tourLocation2<?php echo $update['id']; ?>" value="<?php echo $update['tourLocation2']; ?>"></td>
           <td><input type="text" name="tourAvailability<?php echo $update['id']; ?>" value="<?php echo $update['tourAvailability']; ?>"></td>
           <td><input type="text" name="tourTicketLink<?php echo $update['id']; ?>" value="<?php echo $update['tourTicketLink']; ?>"></td>
-          <td><input type="text" name="tourDetails<?php echo $update['id']; ?>" value="<?php echo $update['tourDetails']; ?>"></td>
           <td><?php echo $update['id']; ?></td>
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="editTour" value="Edit Tour">
+    <input type="submit" name="editTour" value="Edit Tour" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>
 
 <div class="upload">
   <h1>Delete Tour</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -203,11 +201,11 @@ main
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="deleteTour" value="Delete">
+    <input type="submit" name="deleteTour" value="Delete" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>
 
-<form class="upload" action="/cms-form" method="POST">
+<form class="upload" action="/MyBand/cms-form" method="POST">
   <h1>Add About</h1>
   <label for="aboutText">About Text</label> <br>
   <textarea name="aboutText" id="aboutText" placeholder="I am..."></textarea> <br>
@@ -215,12 +213,12 @@ main
   <label for="aboutPicture">About Picture</label> <br>
   <input type="text" name="aboutPicture" id="aboutPicture" placeholder="link/to/picture"> <br>
 
-  <input type="submit" name="newAbout" value="Add About">
+  <input type="submit" name="newAbout" value="Add About" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
 </form>
 
 <div class="upload">
   <h1>Edit About</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -236,13 +234,13 @@ main
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="editAbout" value="Edit About">
+    <input type="submit" name="editAbout" value="Edit About" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>
 
 <div class="upload">
   <h1>Delete About</h1>
-  <form action="/cms-form" method="POST">
+  <form action="/MyBand/cms-form" method="POST">
     <input type="text" name="id" placeholder="ID" required>
     <table border="1">
       <tr>
@@ -258,6 +256,6 @@ main
         </tr>
       <?php endforeach; ?>
     </table>
-    <input type="submit" name="deleteAbout" value="Delete">
+    <input type="submit" name="deleteAbout" value="Delete" <?php if ($_SESSION['account_type'] == 'School') {echo 'disabled';} ?>>
   </form>
 </div>

@@ -25,6 +25,11 @@ tourpage
 <?php $this->stop('content_div') ?>
 
 <h1>The Final Party</h1>
+<p class="modaalKnop">Details</p>
+<div class="modaalContent">
+  <h1>The Final Party</h1>
+  <p>I've never actually been to one of the shows, but I think they just play Mario Party and have fun with the audience.</p>
+</div>
 <ul>
   <?php foreach ($tours as $tour): ?>
     <li>

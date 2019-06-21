@@ -1,4 +1,4 @@
-/*Reset*/
+/*Reset */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap");
 @font-face {
   font-family: "barthowheelregular";
@@ -21,6 +21,50 @@ body {
 .container {
   min-height: 100%;
   position: relative;
+}
+
+.modaalKnop {
+  position: relative;
+  left: 80%;
+  font-size: 1.2em;
+  color: #0000EE;
+  cursor: pointer;
+}
+.modaalKnop:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Modale venster */
+.container .modaalContent {
+  display: none;
+}
+
+.modaalAchtergrond {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  animation: blackout 0.3s forwards;
+}
+
+.modaal {
+  max-width: 80%;
+  padding: 1em;
+  /*border-radius: 2em */
+  background-color: #fff;
+  animation: rounding 0.5s forwards;
+}
+
+.sluitKnop {
+  position: relative;
+  left: 95%;
+  cursor: pointer;
 }
 
 .headerImage {
@@ -108,23 +152,19 @@ nav .rightNav {
   position: relative;
   top: 5%;
   left: 14.7%;
-  padding: 1em 1.7em;
+  padding: 0.7em 1.3em;
   margin: 0.2em;
-  border-radius: .5em;
+  border-radius: 1em;
   border: 1px solid black;
-  background: #f5883b;
+  background: red;
   color: white;
   text-decoration: none;
 }
 
 .currentPage {
-  background: #f98;
+  background: pink;
 }
 
-.paginationForm {
-  position: absolute;
-  top: 50%;
-}
 .sidebar {
   grid-row: 1;
   grid-column: 1;
@@ -259,6 +299,7 @@ nav .rightNav {
 .contactForm select, .contactForm textarea {
   margin: 1em 0;
 }
+
 .searchPage ul li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -280,15 +321,10 @@ nav .rightNav {
   grid-row-end: 3;
 }
 
-#searchBox {
-  position: relative;
+.paginationForm {
+  position: absolute;
+  top: 50%;
   left: 44%;
-}
-
-#searchBox input[type=submit] {
-  padding: .2em 2em;
-  background: #F5883B;
-  border-radius: .5em
 }
 
 .footer {
