@@ -5,10 +5,13 @@ Link naar site: http://25890.hosts2.ma-cloud.nl/MyBand/
 
 Alt+L om naar CMS pagina te gaan. Log in:
 
-Gebruikersnaam: MA
+~Gebruikersnaam: MA~
 
 
-Wachtwoord: Welkom123
+~Wachtwoord: Welkom123~
+
+Weg gehaald voor veiligheid
+
 
 School project genaamd MyBand
 
