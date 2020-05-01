@@ -1,6 +1,6 @@
 # MyBand
 
-Link naar site: http://25890.hosts2.ma-cloud.nl/MyBand/
+Link naar site: https://damienhensen.nl/MyBand/
 
 
 Alt+L om naar CMS pagina te gaan. Log in:
